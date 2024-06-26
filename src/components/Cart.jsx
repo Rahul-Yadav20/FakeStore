@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCart } from '../hooks/useCart';
 
 const Cart = () => {
@@ -16,6 +16,10 @@ const Cart = () => {
       setOrderPlaced(false);
     }, 3000); // Reset order placed state after 3 seconds
   };
+
+  useEffect(()=>{
+    document.title = "Shopping Cart"
+  }, [])
 
   return (
     <div className="p-4 bg-gray-100 dark:bg-gray-900 min-h-screen">

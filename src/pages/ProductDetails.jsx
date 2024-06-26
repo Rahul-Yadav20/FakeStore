@@ -28,6 +28,7 @@ const ProductDetails = () => {
         setProduct(data)
         setLoading(false)
       });
+    document.title = "Product Page"
   }, [id]);
 
 

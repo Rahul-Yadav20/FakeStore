@@ -22,9 +22,9 @@ const HomePage = () => {
                 setProducts(data)
                 setLoading(false);
             });
+
+            document.title = "Home Page"
     }, []);
-
-
 
     return (
         <div className="p-4 dark:bg-slate-400 dark:text-white pb-10">
