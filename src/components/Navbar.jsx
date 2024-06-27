@@ -7,7 +7,9 @@ import { useCart } from '../hooks/useCart';
 import { FaShoppingCart } from "react-icons/fa";
 import { MdNightlight } from "react-icons/md";
 import { IoIosSunny } from "react-icons/io";
-
+import { MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
 
@@ -57,13 +59,25 @@ const Navbar = () => {
 
             <div className='flex space-x-4 '>
                 <Link to="/" className="text-2xl font-bold text-white">FakeStore</Link>
-                <button type="button" className='' onClick={() => setToggle(!toggle)}>
-                    <span className="text-white">Categories</span>
-                    <ul className={`${toggle ? "" : "hidden"} absolute top-14 bg-gray-200 flex flex-col gap-2 p-2 z-50  text-lg left-28`}>
+                <button
+                    type="button"
+                    className=''
+                    onClick={() => setToggle(!toggle)}
+                >
+                    <div className="text-white flex items-center">
+                        <div>Categories</div>
+                        <div className='text-xl'>{toggle ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</div>
+                    </div>
+                    <ul
+                        className={`${toggle ? "" : "hidden"} absolute top-14 bg-gray-200 flex flex-col gap-2 p-2 z-50  text-lg left-28`}
+
+                    >
                         {categories.map((category) => {
                             return (
                                 <Link to={`/category/${category}`} key={category}>
-                                    <li className='hover:text-white hover:bg-black' >{category.charAt().toUpperCase() + category.slice(1)}</li>
+                                    <li className='hover:text-white hover:bg-black'>
+                                        {category.charAt().toUpperCase() + category.slice(1)}
+                                    </li>
                                 </Link>
                             )
                         })}
